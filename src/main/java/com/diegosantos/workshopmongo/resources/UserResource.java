@@ -32,6 +32,8 @@ public class UserResource {
 		return ResponseEntity.ok().body(listDto);
 		
 	}
+	
+	/*QUADRO DE MODALIDADES DE CRUD*/
 
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<UserDTO> findById(@PathVariable String id){
@@ -54,5 +56,18 @@ public class UserResource {
 		return ResponseEntity.noContent().build();
 		
 	}
+	
+	@RequestMapping(value="/{id}",  method = RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody UserDTO objDto, @PathVariable String id) {
+	    User obj = service.fromDTO(objDto);
+	    obj.setId(id);
+	    obj = service.update(obj);
+	    return ResponseEntity.noContent().build();
+	}
+	
+	
+	
+	
+	
 	
 }
