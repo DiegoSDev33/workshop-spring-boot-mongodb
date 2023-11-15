@@ -3,8 +3,15 @@ package com.diegosantos.workshopmongo.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="user") // estou dizendo que essa minha classe corresponde a uma coleção no mongo db
+							// (collection="user") nao obrigatorio colocar, caso nao coloque o prorio metodo buscara 
+							//pelo nome de referencia "user" da classe
 public class User implements Serializable{
 	
+	/* @Id - com o id chamando aqui esta dando erro*/
 	private static final long serialVersionUID = 1L;
 	private String id;
 	private String name;
