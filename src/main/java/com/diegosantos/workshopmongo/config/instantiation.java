@@ -54,6 +54,9 @@ public class instantiation implements CommandLineRunner{
 		
 		postRepository.saveAll(Arrays.asList(post1, post2));
 		
+		tiago.getPosts().addAll(Arrays.asList(post1, post2));
+		userRepository.save(tiago);
+		
 	}
 
 }
