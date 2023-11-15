@@ -31,6 +31,11 @@ public class UserService {
 		return repo.insert(obj);
 	}
 	
+	public void delete(String id) {
+		findById(id); // chamado o metodo de busca para validar se o id existe, caso nao ele ja manda a excessao 
+		repo.deleteById(id);
+	}
+	
 	
 	// instanciado o DTO dentro de UserService para otimizar, pois o banco de dados esta vinculado a essa classe
 	public User fromDTO(UserDTO objDto){
